@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M Nice Chat</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2505517411389614"
+     crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <style>
+      @font-face {
+            font-family: Poppins;
+            src: url(Poppins-Light.ttf) format("truetype");
+        }
+        body{
+            font-family: Poppins;
+            margin: 0px 0px;
+        }
+        #name{
+            font-family: Poppins;
+            position: absolute;
+            top: 50%;
+            border-radius: none;
+            border: 1px solid black;
+            height: 50px;
+            font-size: 25px;
+            padding: 0px 5px;
+            transform: translateY(-50%);
+            outline: none;
+            z-index: 10;
+        }
+        #submit{
+            font-family: Poppins;
+            position: absolute;
+            top: 65%;
+            border-radius: none;
+            border: none;
+            width: 100%;
+            height: 50px;
+            font-size: 25px;
+            padding: 0px 5px;
+            transform: translateY(-50%);
+            outline: none;
+            z-index: 10;
+            color: white;
+            background-color: royalblue;
+            transition: all 500ms ease-in-out;
+        }
+        #submit:hover{
+        background-color: rgb(0, 0, 128);
+      }
+      #dis{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: none;
+      }
+      #contan{
+        font-family: Poppins;
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        height: 75px;
+        z-index: 5;
+      }
+      #num{
+        font-family: Poppins;
+        outline: none;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        width: 75%;
+        height: 94%;
+        font-size: 62.5px;
+        border: 1px solid black;
+        border-radius: 0px 0px;
+      }
+      #upd{
+        display: none;
+        font-family: Poppins;
+        outline: none;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        width: 75%;
+        height: 94%;
+        font-size: 62.5px;
+        border: 1px solid black;
+        border-radius: 0px 0px;
+      }
+      #sub{
+        font-family: Poppins;
+        bottom: 0px;
+        left: 75.49%;
+        position: absolute;
+        width: 24.5%;
+        height: 100%;
+        color: white;
+        background-color: rgb(65, 105, 225);
+        font-size: 25px;
+        border: 1px solid black;
+        border-radius: 0px;
+        transition: all 500ms ease-in-out;
+      }
+      #sub:hover{
+        background-color: rgb(0, 0, 128);
+      }
+      #updbbb{
+        display: none;
+        font-family: Poppins;
+        bottom: 0px;
+        left: 75.49%;
+        position: absolute;
+        width: 24.5%;
+        height: 100%;
+        color: white;
+        background-color: rgb(65, 105, 225);
+        font-size: 25px;
+        border: 1px solid black;
+        border-radius: 0px;
+        transition: all 500ms ease-in-out;
+      }
+      #updbbb:hover{
+        background-color: rgb(0, 0, 128);
+      }
+      #messages{
+        position: absolute;
+        top: 0%;
+        width: 100%;
+        display: block;
+        height: 87%;
+        font-family: Poppins;
+        list-style-type: none;
+        padding: 0px;
+        margin: 0px;
+        overflow: auto;
+      }
+      #messages li{
+        position: relative;
+        font-family: Poppins;
+        display: block;
+        padding: 10px 10px;
+        overflow: auto;
+      }
+      .delete{
+        transition: all 500ms ease-in-out;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        border: 1px inset black;
+        background-color: rgb(225, 105, 65);
+        color: white;
+        font-family: Poppins;
+      }
+      .delete:hover{
+        background-color: rgb(128, 0, 0);
+      }
+      .co{
+        transition: all 500ms ease-in-out;
+        position: absolute;
+        top: 10px;
+        border: 1px inset black;
+        background-color: rgb(65, 105, 225);
+        color: white;
+        font-family: Poppins;
+      }
+      .co:hover{
+        background-color: rgb(0, 0, 128);
+      }
+      .edit{
+        transition: all 500ms ease-in-out;
+        position: absolute;
+        top: 10px;
+        right: 127.5px;
+        color: black;
+        border: 1px inset black;
+        background-color: rgb(255, 228, 0);
+        font-family: Poppins;
+      }
+      .edit:hover{
+        background-color: rgb(220, 200, 0);
+      }
+      #res{
+        height: 40px;
+        font-size: 25px;
+        position: absolute;
+        z-index: 999;
+        background-color: white;
+        padding-right: 6px;
+        padding-left: 12.5px;
+        padding-top: 6px;
+        padding-bottom: none;
+        top: 46.2%;
+        right: 25px;
+        color: black;
+        font-family: Poppins;
+        margin: 0px;
+      }
+      .nosel{
+        user-select: none;
+      }
+      #copy{
+        position: absolute;
+        top: -64px;
+      }
+      #upid{
+        position: absolute;
+        top: -64px;
+      }
+    </style>
+</head>
+<body>
+  <div id="dis">
+  <div id="contan">
+      <input type="text" placeholder="Type New Message" id="upd">
+      <input type="text" placeholder="Type Message" id="num">
+      <button id="updbbb">Edit</button>
+      <button id="sub">Send</button>
+    </div>
+      <ul id="messages"></ul>
+      <script src="jquery-3.6.0.min.js"></script>
+    </div>
+    <input type="text" placeholder="Your Name" id="name" autocomplete="off">
+    <input type="text" id="copy">
+    <input type="text" id="upid">
+    <p id="res">0/24</p>
+    <button id="submit">Submit</button>
+    <script type="module">
+      let wts = false
+      setInterval(() => {
+        document.getElementById("name").style.width = screen.width - 50 + "px"
+        document.getElementById("submit").style.width = screen.width - 37.5 + "px"
+        document.getElementById("contan").style.width = screen.width + "px"
+        document.getElementById("num").style.width = screen.width - (screen.width / 4) + "px"
+        document.getElementById("submit").style.marginLeft = 18.75 + "px"
+        document.getElementById("name").style.marginLeft = 18.75 + "px"
+      }, 1)
+        document.getElementById("submit").addEventListener("click", function() {
+          let val = document.getElementById("name").value
+              if(val != undefined && val != "" && val.length <= 24){
+                  document.getElementById("name").style.display = "none"
+                  document.getElementById("submit").style.display = "none"
+                  document.getElementById("res").style.display = "none"
+                  document.getElementById("dis").style.display = "block"
+                  onChildAdded(ref(db, "messages/"), function (data) {
+                    if(data.val().sender != document.getElementById("name").value){
+                      var back = "background-color: rgb(174, 174, 174);text-align: right;right: 0px;"
+        };if(data.val().sender == document.getElementById("name").value){
+          var back = "background-color: rgb(194, 235, 194);left: 0px;"};
+          var html = "";html += "<li style='"+ back +"' id='mess-" + data.val().id + "'>";html += "<span class='nosel'>";html += data.val().sender;html += ": ";html += "</span>";html += "<span id='co-" + data.val().id + "'>";html += data.val().message;html += "</span>";if(data.val().sender == document.getElementById("name").value){html += "<button class='delete' id='"+ data.val().id +"'>";html += "Delete";html += "</button>"};if(data.val().sender == document.getElementById("name").value){html += "<button class='co' style='right: 72px;' data='" + data.val().message + "' id-data='" + data.val().id + "'>";};if(data.val().sender != document.getElementById("name").value){html += "<button class='co' style='left: 10px;' data='" + data.val().message + "' id-data='" + data.val().id + "'>";}html += "Copy";html += "</button>";html += "</li>";
+          document.getElementById("messages").innerHTML += html;
+        })
+                }
+              }
+        )
+        document.getElementById("submit").addEventListener("onpointerup", function() {
+          let val = document.getElementById("name").value
+              if(val != undefined && val != "" && val.length <= 24){
+                  document.getElementById("name").style.display = "none"
+                  document.getElementById("submit").style.display = "none"
+                  document.getElementById("res").style.display = "none"
+                  document.getElementById("dis").style.display = "block"
+                  onChildAdded(ref(db, "messages/"), function (data) {
+                    if(data.val().sender != document.getElementById("name").value){
+                      var back = "background-color: rgb(174, 174, 174);text-align: right;right: 0px;"
+        };if(data.val().sender == document.getElementById("name").value){
+          var back = "background-color: rgb(194, 235, 194);left: 0px;"};
+          var html = "";html += "<li style='"+ back +"' id='mess-" + data.val().id + "'>";html += "<span class='nosel'>";html += data.val().sender;html += ": ";html += "</span>";html += "<span id='co-" + data.val().id + "'>";html += data.val().message;html += "</span>";if(data.val().sender == document.getElementById("name").value){html += "<button class='delete' id='"+ data.val().id +"'>";html += "Delete";html += "</button>"};if(data.val().sender == document.getElementById("name").value){html += "<button class='co' style='right: 72px;' data='" + data.val().message + "' id-data='" + data.val().id + "'>";};if(data.val().sender != document.getElementById("name").value){html += "<button class='co' style='left: 10px;' data='" + data.val().message + "' id-data='" + data.val().id + "'>";}html += "Copy";html += "</button>";html += "</li>";
+          document.getElementById("messages").innerHTML += html;
+        })
+            };
+              }
+        )
+        // Import the functions you need from the SDKs you need
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+        // Your web app's Firebase configuration
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-app.js";
+  import { getDatabase,  remove ,onChildAdded, onChildRemoved, ref, set, push, child, get } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-database.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyAqfHzlKYWT-c68zlsSo-aRAv7Bbqa6QOU",
+    authDomain: "mnicechatdb.firebaseapp.com",
+    projectId: "mnicechatdb",
+    storageBucket: "mnicechatdb.appspot.com",
+    messagingSenderId: "1018253293142",
+    appId: "1:1018253293142:web:69f1c297ce7f14e7632df7"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+        var messagehtml = ""
+      // Initialize Firebase
+      document.getElementById("name").addEventListener("input", function (kd) {
+        let val = document.getElementById("name").value
+          document.getElementById("res").innerText = val.length + "/" + "24";
+          if(val.length > 24){
+            document.getElementById("res").style.color = '#ff2851'
+            document.getElementById("name").style.color = '#ff2851'
+            document.getElementById("name").style.borderColor = '#ff2851'
+          }
+          if(val.length <= 24){
+            document.getElementById("res").style.color = 'black'
+            document.getElementById("name").style.color = 'black'
+            document.getElementById("name").style.borderColor = 'black'
+          }
+      })
+      document.getElementById("name").addEventListener("keyup", function (k) {
+          if(k.keyCode === 13){
+              let val = document.getElementById("name").value
+              console.log(val.length)
+              if(val != undefined && val != "" && val.length <= 24){
+                  document.getElementById("name").style.display = "none"
+                  document.getElementById("submit").style.display = "none"
+                  document.getElementById("res").style.display = "none"
+                  document.getElementById("dis").style.display = "block"
+                  onChildAdded(ref(db, "messages/"), function (data) {
+                    if(data.val().sender != document.getElementById("name").value){
+                      var back = "background-color: rgb(174, 174, 174);text-align: right;right: 0px;"
+        };if(data.val().sender == document.getElementById("name").value){
+          var back = "background-color: rgb(194, 235, 194);left: 0px;"};
+          var html = "";html += "<li style='"+ back +"' id='mess-" + data.val().id + "'>";html += "<span class='nosel'>";html += data.val().sender;html += ": ";html += "</span>";html += "<span id='co-" + data.val().id + "'>";html += data.val().message;html += "</span>";if(data.val().sender == document.getElementById("name").value){html += "<button class='delete' id='"+ data.val().id +"'>";html += "Delete";html += "</button>"};if(data.val().sender == document.getElementById("name").value){html += "<button class='co' style='right: 72px;' data='" + data.val().message + "' id-data='" + data.val().id + "'>";};if(data.val().sender != document.getElementById("name").value){html += "<button class='co' style='left: 10px;' data='" + data.val().message + "' id-data='" + data.val().id + "'>";}html += "Copy";html += "</button>";/*if(data.val().sender == document.getElementById("name").value){html += "<button data-id='" + data.val().id +"' class='edit'>";html += "Edit";html += "</button>"};*/html += "</li>";
+          document.getElementById("messages").innerHTML += html;
+        })
+        setInterval(() => {
+          let val = document.getElementById("name").value
+          if(val.length >= 24){
+            val.length = 24
+          }
+          
+        }, 0)
+      }
+    }
+  }
+      )
+    
+        const db = getDatabase(app);
+        const dbref = ref(db);
+        document.getElementById("sub").addEventListener("click", function () {
+          if(wts == false){
+        var name = document.getElementById("name").value;
+        var messagein = document.getElementById("num").value;
+        if(messagein != ""){
+          var id = push(child(ref(db), "messages")).key;
+          set(ref(db, "messages/" + id), {
+            sender: name,
+            message: messagein,
+            id: id
+          })
+          wts = true
+          setTimeout(() => {wts = false;document.getElementById("sub").innerText = "Send";document.getElementById("sub").style.backgroundColor = "rgb(65, 105, 225)"}, 2000)
+          setTimeout(() => {document.getElementById("sub").innerText = "1";document.getElementById("sub").style.backgroundColor = "rgb(0, 0, 128)"}, 1000)
+          document.getElementById("sub").innerText = "2";document.getElementById("sub").style.backgroundColor = "rgb(0, 0, 64)"
+          document.getElementById("num").value = ""
+        }
+      }});
+      document.getElementById("sub").addEventListener("onpointerup", function () {
+          if(wts == false){
+        var name = document.getElementById("name").value;
+        var messagein = document.getElementById("num").value;
+        if(messagein != ""){
+          var id = push(child(ref(db), "messages")).key;
+          set(ref(db, "messages/" + id), {
+            sender: name,
+            message: messagein,
+            id: id
+          })
+          wts = true
+          setTimeout(() => {wts = false;document.getElementById("sub").innerText = "Send";document.getElementById("sub").style.backgroundColor = "rgb(65, 105, 225)"}, 2000)
+          setTimeout(() => {document.getElementById("sub").innerText = "1";document.getElementById("sub").style.backgroundColor = "rgb(0, 0, 128)"}, 1000)
+          document.getElementById("sub").innerText = "2";document.getElementById("sub").style.backgroundColor = "rgb(0, 0, 64)"
+          document.getElementById("num").value = ""
+        }
+      }});
+      $('.co').click(function(){var co = $(this).attr('id-data');var cod = $(this).attr('data');var coid = "co" + co;var els = document.getElementById('copy');els.value = cod;els.select();$(this).html("Copyed");document.execCommand("copy");window.getSelection().removeAllRanges();setTimeout(() => {$(this).html("Copy");}, 2500)});
+      $('.co').on('onpointerup',function(){var co = $(this).attr('id-data');var cod = $(this).attr('data');var coid = "co" + co;var els = document.getElementById('copy');els.value = cod;els.select();$(this).html("Copyed");document.execCommand("copy");window.getSelection().removeAllRanges();setTimeout(() => {$(this).html("Copy");}, 2500)});
+        $('.delete').click(function(){var messid = $(this).attr('id');remove(ref(db, "messages/" + messid))});$('.delete').on('onpointerup',function(){var messid = $(this).attr('id');remove(ref(db, "messages/" + messid));});
+        let up = 0
+        setInterval(() => {
+          $('.edit').click(function () {
+            if(up == 1){
+              up = 0;$(this).html("Edit") 
+            }else{
+              up = 1;$(this).html("Cancel")
+            }
+            let id = $(this).attr('data-id');let nameup = document.getElementById("name").value;
+          })
+        }, 1)
+        setInterval(() => {
+          if(up == 1){
+            document.getElementById("sub").style.display = "none"
+            document.getElementById("num").style.display = "none";
+            document.getElementById("upd").style.display = "block";
+            document.getElementById("updbbb").style.display = "block";
+          }else{
+            document.getElementById("sub").style.display = "block"
+            document.getElementById("num").style.display = "block";
+            document.getElementById("upd").style.display = "none";
+            document.getElementById("updbbb").style.display = "none";
+          }
+        }, 1);
+        const viemess = ref(db, "messages/");onChildRemoved(viemess, (snapshot) => {var sender = snapshot.val().sender;document.getElementById("mess-" + snapshot.val().id).innerHTML = "This Message Is Removed By " + sender;setTimeout(() => {document.getElementById("mess-" + snapshot.val().id).style.display = "none";}, 2500)});
+        document.getElementById("num").addEventListener("keyup", function(k){if(k.keyCode === 13){if(wts == false){
+        var name = document.geitElementById("name").value;
+        var messagen = document.getElementById("num").value;
+        if(messagein != ""){
+          var id = push(child(ref(db), "messages")).key;
+          set(ref(db, "messages/" + id), {
+            sender: name,
+            message: messagein,
+            id: id
+          })
+          wts = true
+          setTimeout(() => {wts = false;document.getElementById("sub").innerText = "Send";document.getElementById("sub").style.backgroundColor = "rgb(65, 105, 225)"}, 2000)
+          setTimeout(() => {document.getElementById("sub").innerText = "1";document.getElementById("sub").style.backgroundColor = "rgb(0, 0, 128)"}, 1000)
+          document.getElementById("sub").innerText = "2";document.getElementById("sub").style.backgroundColor = "rgb(0, 0, 64)"
+          document.getElementById("num").value = ""
+        }
+      }}})
+      </script>
+</body>
+</html>
